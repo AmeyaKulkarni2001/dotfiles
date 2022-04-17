@@ -90,7 +90,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -242,9 +242,16 @@ bindsym $mod+p exec flameshot gui
 
 exec_always compton -f
 
-#Scratchpad
+#Scratchpad --> Terminal
 for_window [title="float"] floating enable
 for_window [title="float"] move scratchpad
 exec --no-startup-id terminator -T float
 
 bindsym $mod+t [title="float"] scratchpad show; move position center
+
+#Scratchpad --> File
+for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="Org.gnome.Nautilus"] move scratchpad
+exec --no-startup-id nautilus
+
+bindsym $mod+e [class="Org.gnome.Nautilus"] scratchpad show; move position center 
