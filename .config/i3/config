@@ -205,8 +205,9 @@ hide_edge_borders both
 bar {
 	font pango:monospace 8, Anonymice Nerd Font 12
         status_command ~/.config/bumblebee-status/bumblebee-status \
- 	-t  greyish-powerline \
- 	-m  pasink memory datetime hostname battery 
+ 	-t nord-powerline \
+ 	-m playerctl pasink memory date time hostname battery \
+	-p playerctl.format="{{ title }} - {{ artist }}" playerctl.layout=playerctl.prev,playerctl.song,playerctl.next 
 	position top
 #	colors {
 	#	background $bg-color
@@ -250,8 +251,8 @@ exec --no-startup-id terminator -T float
 bindsym $mod+t [title="float"] scratchpad show; move position center
 
 #Scratchpad --> File
-for_window [class="Org.gnome.Nautilus"] floating enable
-for_window [class="Org.gnome.Nautilus"] move scratchpad
-exec --no-startup-id nautilus
+for_window [title="file"] floating enable
+for_window [title="file"] move scratchpad
+exec --no-startup-id terminator -T file -e ranger
 
-bindsym $mod+e [class="Org.gnome.Nautilus"] scratchpad show; move position center 
+bindsym $mod+e [title="file"] scratchpad show; move position center 
