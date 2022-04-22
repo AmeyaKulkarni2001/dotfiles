@@ -245,6 +245,7 @@ bindsym $mod+d exec rofi -show drun
 #
 bindsym $mod+p exec flameshot gui
 
+#Compton
 exec_always compton -f
 
 #Scratchpad --> Terminal
@@ -259,4 +260,13 @@ for_window [title="file"] floating enable
 for_window [title="file"] move scratchpad
 exec --no-startup-id terminator -T file -e ranger
 
-bindsym $mod+e [title="file"] scratchpad show; move position center 
+bindsym $mod+e [title="file"] scratchpad show; move position center
+
+### Or add this alone if you are coming across any error in your i3config###
+#############################
+### settings for i3-gaps: ###
+#############################
+
+# Set inner/outer gaps
+gaps inner 5
+gaps outer 2
