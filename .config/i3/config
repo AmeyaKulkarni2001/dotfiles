@@ -206,8 +206,8 @@ bar {
 	font pango:monospace 8, Anonymice Nerd Font 12
         status_command ~/.config/bumblebee-status/bumblebee-status \
  	-t nord-powerline \
- 	-m playerctl pasink memory date time hostname battery \
-	-p playerctl.format="{{ title }} - {{ artist }}" playerctl.layout=playerctl.prev,playerctl.song,playerctl.next 
+ 	-m spacer playerctl spacer pasink memory date time hostname battery \
+	-p playerctl.format="{{ title }} - {{ artist }}" playerctl.layout=playerctl.prev,playerctl.song,playerctl.next spacer.text="	" 
 	position top
 #	colors {
 	#	background $bg-color
@@ -229,7 +229,11 @@ bindsym $mod+x exec i3lock --image=/home/ameya-u/Pictures/Wallpaper/wallhaven-2k
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause-pause
 bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPrev exec playerctl previousi
+
+# Brightness control
+bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
 # start rofi (a program launcher)
 # bindsym $mod+d exec rofi -show drun -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
