@@ -185,7 +185,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
+set $bg-color 	         #676E7D
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
@@ -198,7 +198,7 @@ client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
-hide_edge_borders both
+# hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -206,7 +206,7 @@ bar {
 	font pango:monospace 8, Anonymice Nerd Font 12
         status_command ~/.config/bumblebee-status/bumblebee-status \
  	-t nord-powerline \
- 	-m spacer playerctl spacer pasink memory date time hostname battery \
+ 	-m spacer playerctl spacer brightness pasink memory date time hostname battery \
 	-p playerctl.format="{{ title }} - {{ artist }}" playerctl.layout=playerctl.prev,playerctl.song,playerctl.next spacer.text="	" 
 	position top
 #	colors {
@@ -222,7 +222,10 @@ bar {
 
 
 new_window 1pixel
+#Nitrogen -> Wallpaper
 exec_always nitrogen --restore
+
+#i3lock -> Lockscreen
 bindsym $mod+x exec i3lock --image=/home/ameya-u/Pictures/Wallpaper/wallhaven-2k53j6.png
 
 # Media player controls
@@ -237,15 +240,12 @@ bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
 # start rofi (a program launcher)
 # bindsym $mod+d exec rofi -show drun -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
-
-# bindsym $mod+d exec rofi -show drun -color-window '#001d1f21, #707880, #1d1f21' -hide-scrollbar -width 100 -lines 3 -eh 2 -font "System San Francisco Display 18" -padding 800 -separator-style none
-
 bindsym $mod+d exec rofi -show drun 
-# `-hide-scrollbar -width 100 -lines 3 -eh 2 -font "System San Francisco Display 18" -padding 800 -separator-style none
-#
+
+# Flameshot -> Screenshot
 bindsym $mod+p exec flameshot gui
 
-#Compton
+#Compton -> Transparency
 exec_always compton -f
 
 #Scratchpad --> Terminal
@@ -256,17 +256,26 @@ exec --no-startup-id terminator -T float
 bindsym $mod+t [title="float"] scratchpad show; move position center
 
 #Scratchpad --> File
-for_window [title="file"] floating enable
-for_window [title="file"] move scratchpad
-exec --no-startup-id terminator -T file -e ranger
+for_window [title="ranger"] floating enable
+for_window [title="ranger"] move scratchpad
+exec --no-startup-id terminator -T ranger -e ranger
 
-bindsym $mod+e [title="file"] scratchpad show; move position center
+bindsym $mod+e [title="ranger"] scratchpad show; move position center
 
-### Or add this alone if you are coming across any error in your i3config###
+#Removing window from scratchpad
+## remove a floating window from scratchpad
+#bindsym $mod+z floating disable; floating enable
+
+
+#Auto-tiling
+exec_always --no-startup-id autotiling.py
+
+
+
 #############################
 ### settings for i3-gaps: ###
 #############################
 
 # Set inner/outer gaps
-gaps inner 5
-gaps outer 2
+gaps inner 7
+gaps outer 5
