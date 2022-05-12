@@ -262,6 +262,13 @@ exec --no-startup-id terminator -T ranger -e ranger
 
 bindsym $mod+e [title="ranger"] scratchpad show; move position center
 
+#Scratchpad --> Calc
+for_window [title="Calc"] floating enable
+for_window [title="Calc"] move scratchpad
+exec --no-startup-id terminator -T Calc -e python3
+
+bindsym $mod+c [title="Calc"] scratchpad show; move position center
+
 #Removing window from scratchpad
 ## remove a floating window from scratchpad
 #bindsym $mod+z floating disable; floating enable

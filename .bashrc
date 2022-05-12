@@ -24,6 +24,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
+#Removing window from scratchpad
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 

@@ -15,8 +15,9 @@ alias cla='clear'
 alias file='ranger'
 alias sl='cmatrix'
 alias code='codium'
-alias net='nmtui'
+#alias net='nmtui'
 alias lx='lxappearance'
+alias v='vim'
 
 alias capture='ffmpeg -video_size 1920x1080 -framerate 30 -f x11grab -i :0.0+0,0 -c:v libx264rgb -crf 0 -preset ultrafast sample.mkv'
 
@@ -24,10 +25,14 @@ alias capture-au='ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :0.0 
 
 alias ja='javac asgn2.java; java asgn2'
 alias py='python3'
-alias ju='bash /home/ameya-u/Documents/notebook/run-jupyter.sh'
+
+alias ju='bash /home/ameya-u/Coding/notebook/run-jupyter.sh'
+alias add='bash /home/ameya-u/Coding/bash-scripts/git-add.sh'
+alias lex='bash /home/ameya-u/Coding/bash-scripts/flex-run.sh'
 
 alias wp='/opt/brave.com/brave/brave-browser "--profile-directory=Profile 1" --app-id=hnpfjngllnobngcgfapefoaidbinmjnm'
 alias discord='flatpak run com.discordapp.Discord'
 alias spotify='flatpak run com.spotify.Client'
+#flatpak uninstall --delete-data
 #Orignal node version is v14.19.1
 #gufw-pkexec
