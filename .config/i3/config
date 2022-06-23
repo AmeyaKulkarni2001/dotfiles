@@ -207,7 +207,7 @@ bar {
         status_command ~/.config/bumblebee-status/bumblebee-status \
  	-t nord-powerline \
  	-m spacer playerctl spacer brightness pasink memory date time hostname battery \
-	-p playerctl.format="{{ title }} - {{ artist }}" playerctl.layout=playerctl.prev,playerctl.song,playerctl.next spacer.text="	" 
+	-p playerctl.format="{{ title }}" playerctl.layout=playerctl.prev,playerctl.song,playerctl.next spacer.text="	" 
 	position top
 #	colors {
 	#	background $bg-color
@@ -247,6 +247,7 @@ bindsym $mod+p exec flameshot gui
 
 #Compton -> Transparency
 exec_always compton -f
+#exec_always compton --backend glx --paint-on-overlay --vsync opengl-swc -f
 
 #Scratchpad --> Terminal
 for_window [title="float"] floating enable
@@ -277,7 +278,10 @@ bindsym $mod+c [title="Calc"] scratchpad show; move position center
 #Auto-tiling
 exec_always --no-startup-id autotiling.py
 
-
+#Rofi clipboard history
+set $mclip /home/ameya-u/rofi-clipboard-manager/mclip.py
+bindsym $mod+Shift+v exec rofi -modi "clipboard:$mclip menu" -show clipboard  && $mclip paste
+exec --no-startup-id $mclip daemon
 
 #############################
 ### settings for i3-gaps: ###
